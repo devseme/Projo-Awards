@@ -3,5 +3,6 @@ from django.http  import HttpResponse
 
 # Create your views here.
 
-def welcome(request):
-    return HttpResponse('Welcome to the Awardske')
+def index(request):
+    
+    return render(request, 'all-awards/index.html')
