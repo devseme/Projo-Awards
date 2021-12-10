@@ -140,3 +140,10 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# adding config
+cloudinary.config( 
+  cloud_name = 'the-collector', 
+  api_key = '385692492331583', 
+  api_secret = 'wpPzGYYSWBJ_4NCwwSEC0YUMSO8'
+)
