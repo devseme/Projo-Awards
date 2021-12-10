@@ -5,5 +5,6 @@ urlpatterns=[
     # url('^$',views.welcome,name = 'welcome'),
     path('',views.index,name= 'index'),
     path('profile/', views.profile, name='profile'),
+    path('project', views.upload, name = "upload"),
     # path('project/',views.project, name='project'),
 ]
