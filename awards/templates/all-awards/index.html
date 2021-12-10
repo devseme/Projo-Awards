@@ -3,7 +3,32 @@
 {% block content %}
 {{block.super}}
 <body>
-    <h2>Awwards...</h2>
+    <h2 class="text-center">Awwards...</h2>
+
+    
+
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            {% for proj in ip %}
+            <div class="card-group">
+              <div class="card">
+                <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap" height="600" width="400"/>
+                <div class="card-body">
+                  <h5 class="card-title"><b>Name: </b>{{proj.name}}</h5>
+                  <p class="card-text"><b>Description:</b>{{proj.description}}</p>
+      
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted"><b>Date Posted:{{proj.date}}</b></small>
+                </div>
+              </div>
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+      </div>
 </body>
 
 

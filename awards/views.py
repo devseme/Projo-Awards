@@ -7,8 +7,9 @@ from .forms import ShowProjectForm
 # Create your views here.
 
 def index(request):
-    
-    return render(request, 'all-awards/index.html')
+    ip =Project.objects.all().order_by('-id')
+
+    return render(request, 'all-awards/index.html',{'ip':ip})
 
 @login_required(login_url='/accounts/login/')
 def profile(request):
@@ -26,12 +27,12 @@ def upload(request):
     if request.method == 'POST':
         form=ShowProjectForm(request.POST,request.FILES)
         if form.is_valid():
-            image =form.save(commit=False)
-            image.save()
+            ip =form.save(commit=False)
+            ip.save()
             return redirect('/')
-        else:
-            form=ShowProjectForm()
-        return render(request,"show_pic.html",{'form':form})          
+    else:
+        form=ShowProjectForm()
+    return render(request,"show_projo.html",{'form':form})          
 
 
 
