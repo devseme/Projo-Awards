@@ -3,7 +3,7 @@ from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile,Project
-from .forms import ShowProjectForm
+from .forms import ShowProjectForm,EditProfileForm
 # Create your views here.
 
 def index(request):
@@ -20,8 +20,6 @@ def profile(request):
 
     return render(request,"profile.html",{'profile':profile ,'project':project})
 
-
-
 @login_required(login_url='/accounts/login/')
 def upload(request):
     if request.method == 'POST':
@@ -32,7 +30,23 @@ def upload(request):
             return redirect('/')
     else:
         form=ShowProjectForm()
-    return render(request,"show_projo.html",{'form':form})          
+    return render(request,"show_projo.html",{'form':form})  
+
+@login_required(login_url='/accounts/login/')
+def update_profile(request,id):
+    user = User.objects.get(id=id)
+    profile = Profile.objects.get(user = user)
+    form = EditProfileForm(instance=profile)
+    if request.method == "POST":
+            form = EditProfileForm(request.POST,request.FILES,instance=profile)
+            if form.is_valid():  
+                
+                profile = form.save(commit=False)
+                profile.save()
+                return redirect('profile' ,username=user.username) 
+            
+    ctx = {"form":form}
+    return render(request, 'update_profile.html', ctx)    
 
 
 
