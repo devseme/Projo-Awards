@@ -17,4 +17,10 @@ class ShowProjectForm(forms.ModelForm):
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('profile_photo','bio','contact')        
+        fields = ('profile_photo','bio','contact')     
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('profile_photo','bio','contact')

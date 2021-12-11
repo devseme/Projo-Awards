@@ -3,7 +3,9 @@ from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile,Project
-from .forms import ShowProjectForm,EditProfileForm
+from .forms import ShowProjectForm,EditProfileForm,ProfileForm
+from django.http  import HttpResponse,HttpResponseRedirect
+
 # Create your views here.
 
 def index(request):
@@ -43,10 +45,25 @@ def update_profile(request,id):
                 
                 profile = form.save(commit=False)
                 profile.save()
-                return redirect('profile' ,username=user.username) 
+                return redirect('profile') 
             
     ctx = {"form":form}
-    return render(request, 'update_profile.html', ctx)    
+    return render(request, 'update_profile.html', ctx) 
+       
+@login_required(login_url='/accounts/login/')
+def create_profile(request):
+    current_user = request.user
+    title = "Create Profile"
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.save()
+        return HttpResponseRedirect('/')
 
+    else:
+        form = ProfileForm()
+    return render(request, 'create_profile.html', {"form": form, "title": title})
 
 
