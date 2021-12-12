@@ -103,23 +103,34 @@ font-size:3vw;
     </div>
     
 
-<h2 class="text-center" id="projo-title">PROJECTS</h2>
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
+<h2 class="text-center text-warning" id="projo-title">PROJECTS</h2>
+<!-- <style>
+    .project{
+    display:flex;
+     flex-direction:row; 
+     width: 200px;
+     height:auto;
+    }
+</style> -->
+    <div class="container-fluid" >
+        <div class="row" >
+          
             {% for proj in ip %}
-            <div class="card-group">
-              <div class="card">
-                <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap" height="600" width="400"/>
+            <div class="col-md-4 project" >
+            <div class="card-group" >
+              <div class="card"  style="border:2px solid #E46B3F; margin:5px; ">
+                <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap" height="300" width="300"/>
                 <div class="card-body">
-                  <h5 class="card-title"><b>Name: </b>{{proj.name}}</h5>
-                  <p class="card-text"><b>Description:</b>{{proj.description}}</p>
+                  <h5 class="card-title text-center"><b>Name: </b>{{proj.name}}</h5>
+                  <p class="card-text text-center"><b>Description:</b>{{proj.description}}</p>
+                  
       
                 </div>
                 <div class="card-footer">
                   <small class="text-muted"><b>Date Posted:{{proj.date}}</b></small>
                 </div>
               </div>
+          </div>
           </div>
           {% endfor %}
         </div>
