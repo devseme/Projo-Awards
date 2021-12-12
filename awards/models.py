@@ -46,15 +46,17 @@ class Project(models.Model):
     def delete_project(self):
         self.delete()
 
-    @classmethod
+    
   # search project using project name
+    @classmethod
     def search_project_name(cls, search_term):
-        projects = cls.objects.filter(
+        images = cls.objects.filter(
         name__icontains=search_term)
-        return projects   
+        return images  
 
-    def _str_(self):
-        return self.name
+    def str(self):
+        return self.user.username
+
 
 
 

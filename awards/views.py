@@ -67,3 +67,14 @@ def create_profile(request):
     return render(request, 'create_profile.html', {"form": form, "title": title})
 
 
+@login_required(login_url='/accounts/login/')
+def search_project(request):
+    if 'search' in request.GET and request.GET['search']:
+        search_term = request.GET.get('search').lower()
+        images = Project.search_project_name(search_term)
+        message = f'{search_term}'
+
+        return render(request, 'result.html', {'found': message, 'images': images})
+    else:
+        message = 'Not found'
+        return render(request, 'result.html', {'danger': message})
