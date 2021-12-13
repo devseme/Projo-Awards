@@ -35,12 +35,10 @@ background-image: url({{project.image.url}})">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="card-title">Title:{{project.name}}</h2>
-                    <p class="description text-light">
-                       Description: {{ project.description|safe }}
-                    </p>
-                    <P>Category:{{project.category}}</P>
-                    <P>Location:{{project.location}}</P>
+                    <h2 class="card-title ">Title:&nbsp;{{project.name}}</h2>
+                    <p class="card-text text-light"><b>Description:&nbsp;</b>{{project.description}}</p>
+                    <P class="card-text text-light">Category:&nbsp;{{project.category}}</P>
+                    <P class="card-text text-light">Location:&nbsp;{{project.location}}</P>
                     
 
                     <div class="single-content">
@@ -48,8 +46,8 @@ background-image: url({{project.image.url}})">
                         
                         <div class="author mt-5 mb-5">
                             <p class="user text-warning">
-                                By {{user.username }}
-                                <P>Date Posted:{{project.date}}</P>
+                                By &#126; {{user.username}}
+                                <P class="user text-warning">Date Posted:&nbsp;<em>{{project.date}}</em></P>
                                 <a href="{{project.link}}" class="btn btn-info btn-centered">Go to Repo</a>
                             </p>
                             

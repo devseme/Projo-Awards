@@ -56,7 +56,8 @@
     <div class="col-md-3">
         <div class="row">
         <form action="/upload/project/">
-            <input type="submit" style=" background :#00AEDE;"value="Post a project" />
+            <input type="submit" class="btn btn-primary btn-lg" style=" background :#00AEDE;"value="Post a project" />
+            
         </form>
     </div>
     <!-- <div class="col-md-12">
@@ -94,8 +95,8 @@
 </section>
 <style>
     .first{
-        margin-left: 25vw;
-        /* margin-top: -60vh; */
+        margin-left: 22vw;
+        margin-top: -8vh;
       
    
         
@@ -106,15 +107,17 @@
 </style>
 <div class="details">
     <div class="first">
-      <h3>{{user.username}}</h3>
+      <h5 class="text-light" >{{user.username}}</h5>
       {% if request.user is user %}  {% endif %}
       <div>
-        <a href="{%url 'update_profile' user.id %}" class="btn btn-outline-primary mb-4">
+        <a href="{%url 'update_profile' user.id %}" class="btn btn-secondary btn-lg">
           Edit Profile
         </a>
       </div>
     </div>
+    
     <h3 class="post-title text-center" id="ig-text">MY &nbsp; POSTED &nbsp;PROJECTS:</h3>
+    <hr style="height:3px;border-width:1;color:#E46B3F;background-color:#C4402A">
     <div class="container-fluid">
         <div class="row">
        
@@ -137,5 +140,6 @@
         </div>
         </div>
         </div>
+
             {% endfor %}
 {% endblock %}
