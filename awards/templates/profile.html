@@ -24,10 +24,10 @@
 <section class="profile container">
     <div class=" mt-5">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="card">
                     {% if profile.profile_photo %}
-                    <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top">
+                    <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top" height="300" width="300" />
                     {%else%}
                     <img src="https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg"
                         class="card-img-top" alt="My profile picture">
@@ -54,8 +54,9 @@
     </div>
     <br>
     <div class="col-md-3">
+        <div class="row">
         <form action="/upload/project/">
-            <input type="submit" style=" background :#E46B3F;"value="Post a project" />
+            <input type="submit" style=" background :#00AEDE;"value="Post a project" />
         </form>
     </div>
     <!-- <div class="col-md-12">
@@ -92,10 +93,12 @@
         </div>
 </section>
 <style>
-    .details{
-        float:right;
-        margin-right: 50vw;
-        margin-top: -60vh;
+    .first{
+        margin-left: 25vw;
+        /* margin-top: -60vh; */
+      
+   
+        
     }
     h3{
         color:#FFFF;  
@@ -111,5 +114,28 @@
         </a>
       </div>
     </div>
-
+    <h3 class="post-title text-center" id="ig-text">MY &nbsp; POSTED &nbsp;PROJECTS:</h3>
+    <div class="container-fluid">
+        <div class="row">
+       
+            {% for project in project %}
+            <div class="col-md-4" id="post-image">
+                
+                    <div class="card mb-4">
+                        <h5 class="card-title text-center"><b>Title: </b>{{project.name}}</h5>
+                        <img src="{{ project.image.url }}" class="img-responsive" alt="Image" width="400"/>
+                    </div>
+                    </p>
+            </div>
+            {% empty %}
+            
+            <div class="col-md-4">
+                <div class="alert alert-info" role="alert">
+                    No posts!
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+            {% endfor %}
 {% endblock %}

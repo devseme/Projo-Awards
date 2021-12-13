@@ -9,5 +9,6 @@ urlpatterns=[
     path('update_profile/<int:id>',views.update_profile, name='update_profile'),
     path('create_profile/',views.create_profile,name = 'create_profile'),
     path('search/',views.search_project, name='search.post'),
+    path("project/<int:project_id>/", views.project_details, name="project_details"),
     # path('project/',views.project, name='project'),
 ]
