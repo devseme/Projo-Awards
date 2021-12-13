@@ -80,8 +80,8 @@ def search_project(request):
         return render(request, 'result.html', {'danger': message})
 def project_details(request, project_id):
     project = Project.objects.get(id=project_id)
-    
-    return render(request, "project_details.html", {"project": project})
+    rating = Rating.objects.filter(project = project)
+    return render(request, "project_details.html", {"project": project,"rating":rating})
 
 @login_required(login_url='/accounts/login/')
 def rate_project(request,id):
