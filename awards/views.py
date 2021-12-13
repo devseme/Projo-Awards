@@ -5,6 +5,15 @@ from django.contrib.auth.models import User
 from .models import Profile,Project,Rating
 from .forms import ShowProjectForm,EditProfileForm,ProfileForm
 from django.http  import HttpResponse,HttpResponseRedirect
+from rest_framework.views import APIView
+from .permissions import IsAdminOrReadOnly
+from awards import serializer
+from django.http import HttpResponseRedirect, Http404
+from .serializer import ProfileSerializer
+from rest_framework.response import Response
+
+
+
 
 # Create your views here.
 
@@ -107,6 +116,20 @@ def rate_project(request,id):
         project = Project.objects.get(id=id)
  
         return render(request,'project_details.html',{"project":project})
+class ProjectList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format=None):
+        projects = Project.objects.all()
+        serializer = ProfileSerializer(projects,many=True)
+        return Response(serializer.data)
+
+class ProfileList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self,request,format=None):
+        profiles = Profile.objects.all()
+        serializer = ProfileSerializer(profiles,many=True)
+        return Response(serializer.data)
+
    
 
 
