@@ -120,9 +120,8 @@ font-size:3vw;
             <div class="card-group" >
               <div class="card"  style="border:2px solid #E46B3F; margin:5px; ">
                 <a href="{% url 'project_details' proj.id %}">
-                    <img src="{{ pics.image.url }}"class="card-img-top responsive" alt="Personal">
-                </a>
                 <img class="card-img-top" src="{{proj.image.url}}" alt="Card image cap" height="300" width="300"/>
+                </a>
                 <div class="card-body">
                   <h5 class="card-title text-center"><b>Name: </b>{{proj.name}}</h5>
                   <p class="card-text text-center"><b>Description:</b>{{proj.description}}</p>

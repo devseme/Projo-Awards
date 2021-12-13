@@ -1,103 +1,62 @@
 {% extends "all-awards/base.html" %}
 {% block content %}
+<h1 class="text-center m-0 text-light">Project</h1>
+<hr style="height:3px;border-width:1;color:#E46B3F;background-color:#C4402A">
+
 <!-- single post details -->
 <!-- check if image exists -->
 {% if project.image %}
-<section class="single-top-header" style="background-image: url({{project.image.url}});background-repeat: no-repeat; background-size: cover;">
+<section class="single-top-header" 
+style="height: 70vh; width:80vw; margin-left:120px; background-repeat: no-repeat;background-size: cover;background-position: center; 
+background-image: url({{project.image.url}})">
 
     {% else %}
-    <section class="single-top-header"
-        style="background-image: url(https://res.cloudinary.com/developerwilson/image/upload/v1634499490/avhiyof5jsswdgdbfh4f.jpg)">
+    <section class="single-top-header">
         {% endif %}
         <div class="header">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8 text-center mt-5">
-                        <div class="single-content">
-                            <h2 class="display-6 mt-4 headings">
-                                {{ project.title }}
-                            </h2>
-                            <div class="author mt-5 mb-5">
-                                <p>
-                                    By {{user.username }} {{ project.user.last_name }}
-                                </p>
-                                <!-- check if author profile exists -->
-                                {% if project.user.profile_pic_path %}
-                                <img src="{{ post.user.profile_pic_path }}" alt="author" class="author-img mt-3">
-                                {% else %}
-                                <img src="https://image.pngaaa.com/303/1721303-middle.png" alt="author"
-                                    class="author-img mt-3 mb-3">
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2"></div>
+                    
+                            <!-- check if author profile exists -->
+                            {% if project.user.profile_pic_path %}
+                            <img src="{{ user.profile_pic_path }}" alt="author" class="aimg mt-3">
+                            {% else %}
+                            <!-- <img src="https://img.icons8.com/fluency/48/000000/user-male-circle.png" alt="author"
+                                class="aimg mt-3 mb-3" height="300" width="300"> -->
+                            {% endif %}
+                        
+                    
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </section>
     <section class="blog-container p-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>
-                        {{ project.description|safe }}
+                <div class="col-md-8">
+                    <h2 class="card-title">Title:{{project.name}}</h2>
+                    <p class="description text-light">
+                       Description: {{ project.description|safe }}
                     </p>
+                    <P>Category:{{project.category}}</P>
+                    <P>Location:{{project.location}}</P>
+                    
+
+                    <div class="single-content">
+                       
+                        
+                        <div class="author mt-5 mb-5">
+                            <p class="user text-warning">
+                                By {{user.username }}
+                                <P>Date Posted:{{project.date}}</P>
+                                <a href="{{project.link}}" class="btn btn-info btn-centered">Go to Repo</a>
+                            </p>
+                            
+                            </div>
+                            </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="comments-container mb-2">
-        <div class="container">
-            <div class="comments">
-                <div class="row">
-                    <div class="col-md-12">
-                        {% if success %}
-                        <div class="alert alert-success" role="alert">
-                            {{success}}
-                        </div>
-                        {% elif danger %}
-                        <div class="alert alert-danger" role="alert">
-                            {{danger}}
-                        </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <style>
-                    .btn-design,
-                    .btn-design:hover {
-                    background-color: transparent;
-                    color: white;
-                    height: 60px;
-                    width: 60px;
-                    font-weight: 800;
-                    border: 2px solid rgb(143, 30, 30);
-                    }
-
-                    .btn-usability,
-                    .btn-usability:hover {
-                    background-color: transparent;
-                    color: white;
-                    border-radius: 50%;
-                    font-weight: 800;
-                    height: 60px;
-                    width: 60px;
-                    border: 2px solid rgb(148, 148, 4);
-                    }
-
-                    .btn-content,
-                    .btn-content:hover {
-                    background-color: transparent;
-                    color: white;
-                    border-radius: 50%;
-                    font-weight: 800;
-                    height: 60px;
-                    width: 60px;
-                    border: 2px solid rgb(0, 174, 255);
-                    }
-
-                </style>
-
 {% endblock %}
