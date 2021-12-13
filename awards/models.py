@@ -38,7 +38,8 @@ class Project(models.Model):
     category = models.TextField(max_length=20)
     location = models.TextField(max_length=20)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects",null=True)
-    
+    # rate = models.ForeignKey(Rating,null=True, on_delete=models.CASCADE)
+    # average_rating = models
    
     def save_project(self):
         self.save()

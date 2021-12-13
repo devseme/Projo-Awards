@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Profile,Project
+from .models import Profile,Project,Rating
 from .forms import ShowProjectForm,EditProfileForm,ProfileForm
 from django.http  import HttpResponse,HttpResponseRedirect
 
@@ -92,5 +92,21 @@ def rate_project(request,id):
         design_rate = request.POST['design']
         content_rate = request.POST['content']
         usability_rate = request.POST['usability']
+
+        Rating.objects.create(
+            project=project,
+            user=current_user,
+            design_rate=design_rate,
+            usability_rate=usability_rate,
+            content_rate=content_rate,
+            avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2),
+        )
+        return render(request,'project_details.html',{"project":project})
+
+    else:
+        project = Project.objects.get(id=id)
+ 
+        return render(request,'project_details.html',{"project":project})
+   
 
 
