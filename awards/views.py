@@ -82,3 +82,15 @@ def project_details(request, project_id):
     project = Project.objects.get(id=project_id)
     
     return render(request, "project_details.html", {"project": project})
+
+@login_required(login_url='/accounts/login/')
+def rate_project(request,id):
+    if request.method == 'POST':
+        project = Project.objects.get(id=id)
+        current_user = request.user
+
+        design_rate = request.POST['design']
+        content_rate = request.POST['content']
+        usability_rate = request.POST['usability']
+
+
