@@ -50,27 +50,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-8">
+                
+                <form action="/upload/project/">
+                    <input type="submit" class="btn btn-primary btn-lg" style=" background :#00AEDE;"value="Post a project" />
+                    
+                </form>
+            </div>
+           
+            
         </div>
     </div>
     <br>
-    <div class="col-md-3">
-        <div class="row">
-        <form action="/upload/project/">
-            <input type="submit" class="btn btn-primary btn-lg" style=" background :#00AEDE;"value="Post a project" />
-            
-        </form>
-    </div>
-    <!-- <div class="col-md-12">
-        <div class = "" data-toggle ="modal" data-target="#showPicModal">
-            <button class="btn btn-info  btn-lg">Add Profile</button>
-        </div> -->
-    </div>
+  
 </section>
 <style>
     .first{
-        margin-left: 22vw;
+        margin-left: 15vw;
         margin-top: -8vh;
-      
    
         
     }
@@ -83,7 +80,7 @@
       <h5 class="text-light" >{{user.username}}</h5>
       {% if request.user is user %}  {% endif %}
       <div>
-        <a href="{%url 'update_profile' user.id %}" class="btn btn-secondary btn-lg">
+        <a href="{%url 'update_profile' user.id %}" class="btn btn-info btn-lg">
           Edit Profile
         </a>
       </div>
