@@ -1,9 +1,15 @@
 {% extends "all-awards/base.html" %}
 {% load bootstrap4 %}
 {% block content %}
-<div class="col-md-6">
+<style>
+    input{
+        height:10vh;
+        margin:1vw;
+    }
+</style>
+<div class="col-md-6 text-light" >
     <div id="regis">
-        <div class="form-data">
+        <div class="form-data"style="border:10px red;">
             <form action="{%url 'upload'%}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <h2 class="intro">Upload/Show my project</h2>
