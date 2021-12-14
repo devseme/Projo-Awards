@@ -16,7 +16,7 @@ from rest_framework.response import Response
 
 
 # Create your views here.
-
+@login_required(login_url='/accounts/login/')
 def index(request):
     ip =Project.objects.all().order_by('-id')
 
