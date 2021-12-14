@@ -16,7 +16,7 @@ https://creativesawardske.herokuapp.com/
 * User can Search for projects by project name.
 * User can View each projects overall score
 * user can view their profile page and edit.
-* 
+
 
 ## Technologies Used
 
@@ -67,9 +67,9 @@ python manage.py makemigrations insta
 ```
 Open the application on your browser `127.0.0.1:8000`.
 
-####  Admin- 
+####  Admin- moringa1
 
-#### Password-
+#### Password-password123
 
 
 
