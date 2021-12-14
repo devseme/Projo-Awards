@@ -103,17 +103,20 @@ background-image: url({{project.image.url}})">
             <div class="col-md-12">
             {% for rate in rating %}
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <p>Voter: {{rate.user.username}}</p>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <p>Design: {{rate.design_rate}}</p>   
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <p>Content: {{rate.content_rate}}</p>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <p>Usability:{{rate.usability_rate}}</p>
+              </div>
+              <div class="col-md-2">
+                <p>Average:{{rate.avg_rate}}</p>
               </div>
             </div>
             {% empty %}

@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Creatives Awards</a>
+    <a class="navbar-brand" href="#"style="color:#F8B75D; font-weight:700;">Creatives<span style="color:#464062; font-weight:700;
+      font-size: 24px;font-family: Noto Serif;">&nbsp;Awards</span></a>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,28 +12,29 @@
           <a class="nav-link" href="/"><img src="https://img.icons8.com/ios-glyphs/30/000000/home-page--v1.png"/><span class="sr-only">(current)</span></a>
           <li class="nav-item">
           
-            <a class="nav-link active text-white" aria-current="page" id="profile" href="/profile/" height="20px" width="20px">
-              <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/></a>
+            <a class="nav-link active " aria-current="page" id="profile" href="/profile/" height="20px" width="20px">
+              <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>{{ user.username }}</a>
             
           </li>
-          <li class="nav-item">
-            <a style="color:black;" href="/admin" id="ig-text" class="nav-item text-black" active-color="black">&nbsp;Administrator</a>&nbsp; 
-          </li>
+        
         <li class="nav-item dropdown">
-          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a> -->
+          <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            API
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Home</a>
-            <a class="dropdown-item" href="#">Log Out</a>
-            <div class="dropdown-divider"></div>
-            <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+            <a class="dropdown-item" href="/api/projects/">Projects API</a>
+            <a class="dropdown-item" href="/api/profiles/">Profiles API</a>
+            
+            
           </div>
         </li>
-        <li class="nav-item">
-            <a class='btn btn-danger btn-sm'   href="/accounts/login"><span class="glyphicon glyphicon-log-out"></span>Log Out</a>
-        </li>
-      </ul>
+      
+        <li><a class="nav-item nav-link active"  href="/accounts/login">
+          <i class="fas fa-sign-out-alt"></i>Logout
+        </a></li>
+      </ul>  
+        <a style="color:rgb(214, 200, 200);" href="/admin" id="ig-text" class="nav-item text-black" active-color="black"><img src="https://img.icons8.com/metro/26/000000/manager.png"/></a>&nbsp; 
+      
       <form class=" form" role="search" action="{% url 'search.post' %}">
         <div class="input-group " >
           <input type="text" class="form-control" placeholder="Search project name" name="search" style="height: 30px; width: 200px;" >
