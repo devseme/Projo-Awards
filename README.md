@@ -6,7 +6,7 @@
 This is Django app that enables users to view different projects posted by users.
 They can view and rate them according to:Content,Design and Usability.Also,a user can post also post their own projects to be viewed and be rated.
 ##  Live Link 
-
+https://creativesawardske.herokuapp.com/
 
 ## User Story 
 * Sign up/Login to the application to start using.
@@ -67,9 +67,9 @@ python manage.py makemigrations insta
 ```
 Open the application on your browser `127.0.0.1:8000`.
 
-####  Admin- seme
+####  Admin- 
 
-#### Password-0725014883ian
+#### Password-
 
 
 
